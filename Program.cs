@@ -1,21 +1,23 @@
-﻿namespace BitProble
+﻿using System;
+
+namespace Theatre_Square
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int X = 0;
-            int n= int.Parse(Console.ReadLine());
-            for(int i=0;i<n;i++)
-            {
-                string op = Console.ReadLine();
-                if (op.Contains("++"))
-                    X++;
-                else
-                    X--;
-            }
-         
-            Console.WriteLine(X);
+            string[] parts = Console.ReadLine().Split(' ');
+
+            long n = long.Parse(parts[0]);
+            long m = long.Parse(parts[1]);
+            long a = long.Parse(parts[2]);
+
+            long tilesAlongN = (long)Math.Ceiling((double)n / a);
+            long tilesAlongM = (long)Math.Ceiling((double)m / a);
+
+            long howManyTiles = tilesAlongN * tilesAlongM;
+
+            Console.WriteLine(howManyTiles);
         }
     }
 }
